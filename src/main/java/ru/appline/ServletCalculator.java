@@ -29,16 +29,20 @@ public class ServletCalculator extends HttpServlet {
         JsonObject jobj = gson.fromJson(rqLine, JsonObject.class);
         PrintWriter pw = response.getWriter();
 
-        int a = jobj.get("a").getAsInt();
-        int b = jobj.get("b").getAsInt();
+        double a = jobj.get("a").getAsInt();
+        double b = jobj.get("b").getAsInt();
         String sign = jobj.get("math").getAsString();
-        int result;
+        double result;
 
         switch (sign) {
             case "*":
                 result = a * b;
                 break;
             case "/":
+                if (b == 0) {
+                    pw.print(gson.toJson("На 0 делить нельзя!"));
+                    return;
+                }
                 result = a / b;
                 break;
             case "+":

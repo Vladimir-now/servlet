@@ -2,13 +2,13 @@ package ru.appline.logic;
 
 public class Result {
 
-    private int result;
+    private double result;
 
-    public Result(int result) {
+    public Result(double result) {
         this.result = result;
     }
 
-    public int getResult() {
+    public double getResult() {
         return result;
     }
 
