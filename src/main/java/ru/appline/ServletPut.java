@@ -33,7 +33,7 @@ public class ServletPut extends HttpServlet {
         int id = jobj.get("id").getAsInt();
 
         if(id <= 0) {
-            pw.print(gson.toJson("ID пользователя должно быть больше 0!"));
+            pw.print(gson.toJson("ID пользователя должно быть меньше 0!"));
             return;
         }
 
