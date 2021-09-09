@@ -3,7 +3,6 @@ package ru.appline.logic;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Model implements Serializable {
 
@@ -20,7 +19,7 @@ public class Model implements Serializable {
         model.put(1, new User("Tigran", "Mantashyan", 55555));
         model.put(2, new User("Anton", "Osipov", 66666));
         model.put(3, new User("Zoya", "Andreeva", 77777));
-        model.put(4, new User("Elensa", "Vorobey", 88888));
+        model.put(4, new User("Elena", "Vorobey", 88888));
     }
 
     public void add(User user, int id) {
