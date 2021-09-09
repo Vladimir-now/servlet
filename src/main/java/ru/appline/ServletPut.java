@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
 
 import static ru.appline.common.Common.readRequest;
 
@@ -44,23 +43,7 @@ public class ServletPut extends HttpServlet {
         User user = new User(name, surname, salary);
 
         if (!model.getFromList().containsKey(id)) {
-            boolean isCreate = false;
-            Integer i = 1;
-            for (Map.Entry u: model.getFromList().entrySet()) {
-                if (!i.equals(u.getKey())) {
-                    model.add(user, i);
-                    isCreate = true;
-                    pw.print(gson.toJson("Был создан новый пользователь! ID пользователя: " + i));
-                    break;
-                } else {
-                    i++;
-                }
-            }
-            if (!isCreate) {
-                model.add(user, i);
-                pw.print(gson.toJson("Был создан новый пользователь! ID пользователя: " + i));
-            }
-
+            pw.print(gson.toJson("Пользователь с ID: " + id + " не существует! Попробуйте снова."));
         } else {
             model.add(user, id);
             pw.print(gson.toJson("Пользователь с ID: " + id + " был изменен!"));
